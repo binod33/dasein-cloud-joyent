@@ -221,7 +221,7 @@ public class Machine extends AbstractVMSupport<SmartDataCenter> {
             }
         }
         post.put("metadata.dsnTrueImage", withLaunchOptions.getMachineImageId());
-        post.put("metadata.dsnTrueProduct", withLaunchOptions.getStandardProductId());
+        post.put("metadata.dsnTrueProductName", withLaunchOptions.getStandardProductId());
         post.put("metadata.dsnDescription", withLaunchOptions.getDescription());
         String json = method.doPostString(provider.getEndpoint(), "machines", new JSONObject(post).toString());
 
@@ -371,7 +371,8 @@ public class Machine extends AbstractVMSupport<SmartDataCenter> {
                 else {
                     prd.setDescription(prd.getName());
                 }
-                prd.setProviderProductId(ob.getString("id"));
+                //Set provider product id to product name.
+                prd.setProviderProductId(prd.getName());
                 if( options != null) {
                     if( options.matches(prd) )
                         products.add(prd);
@@ -614,7 +615,7 @@ public class Machine extends AbstractVMSupport<SmartDataCenter> {
                         else if( name.equals("dsnTrueImage") ) {
                             vm.setProviderMachineImageId(md.getString(name));
                         }
-                        else if( name.equals("dsnTrueProduct") ) {
+                        else if( name.equals("dsnTrueProductName") ) {
                             vm.setProductId(md.getString(name));
                         }
                         else {

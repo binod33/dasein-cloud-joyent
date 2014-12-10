@@ -257,13 +257,12 @@
 
     <distributionManagement>
         <repository>
-            <id>sonatype-nexus-staging</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-            <uniqueVersion>false</uniqueVersion>
+            <id>enstratus</id>
+            <url>https://artifactory.int.enstratius.com/artifactory/libs-release-local</url>
         </repository>
         <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>enstratus-snapshot</id>
+            <url>https://artifactory.int.enstratius.com/artifactory/libs-snapshot-local</url>
         </snapshotRepository>
     </distributionManagement>
 
